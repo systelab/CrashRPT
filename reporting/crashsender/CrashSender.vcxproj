@@ -207,8 +207,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)lang_files\crashrpt_lang_EN.ini" "$(OutDir)\crashrpt_lang.ini"
-conan export-pkg $(SolutionDir)conanfile_crashsender.py CrashSender/$(ConanPackageVersion)@systelab/stable -s build_type=$(Configuration) -e CONAN_LIB_DIR=$(TargetDir) --profile=$(SolutionDir).vs2022.conanprofile --force</Command>
+      <Command>copy "$(SolutionDir)lang_files\crashrpt_lang_EN.ini" "$(OutDir)\crashrpt_lang.ini"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -254,8 +253,7 @@ conan export-pkg $(SolutionDir)conanfile_crashsender.py CrashSender/$(ConanPacka
       <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)lang_files\crashrpt_lang_EN.ini" "$(OutDir)\crashrpt_lang.ini"
-conan export-pkg $(SolutionDir)conanfile_crashsender.py CrashSender/$(ConanPackageVersion)@systelab/stable -s build_type=$(Configuration) -e CONAN_LIB_DIR=$(TargetDir) --profile=$(SolutionDir).vs2022.conanprofile --force</Command>
+      <Command>copy "$(SolutionDir)lang_files\crashrpt_lang_EN.ini" "$(OutDir)\crashrpt_lang.ini"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -345,8 +343,7 @@ conan export-pkg $(SolutionDir)conanfile_crashsender.py CrashSender/$(ConanPacka
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)lang_files\crashrpt_lang_EN.ini" "$(OutDir)\crashrpt_lang.ini"
-conan export-pkg $(SolutionDir)conanfile_crashsender.py CrashSender/$(ConanPackageVersion)@systelab/stable -s build_type=$(Configuration) -e CONAN_LIB_DIR=$(TargetDir) --profile=$(SolutionDir).vs2022.conanprofile --force</Command>
+      <Command>copy "$(SolutionDir)lang_files\crashrpt_lang_EN.ini" "$(OutDir)\crashrpt_lang.ini"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|x64'">

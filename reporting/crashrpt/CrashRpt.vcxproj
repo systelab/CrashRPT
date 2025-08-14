@@ -205,7 +205,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Bscmake>
     <PostBuildEvent>
-      <Command>conan export-pkg $(SolutionDir)conanfile_crashrpt.py CrashRpt/$(ConanPackageVersion)@systelab/stable -s build_type=$(Configuration) -e CONAN_LIB_DIR=$(TargetDir) --profile=$(SolutionDir).vs2022.conanprofile --force</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -306,7 +307,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Bscmake>
     <PostBuildEvent>
-      <Command>conan export-pkg $(SolutionDir)conanfile_crashrpt.py CrashRpt/$(ConanPackageVersion)@systelab/stable -s build_type=$(Configuration) -e CONAN_LIB_DIR=$(TargetDir) --profile=$(SolutionDir).vs2022.conanprofile --force</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -405,7 +407,8 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
     </Bscmake>
     <PostBuildEvent>
-      <Command>conan export-pkg $(SolutionDir)conanfile_crashrpt.py CrashRpt/$(ConanPackageVersion)@systelab/stable -s build_type=$(Configuration) -e CONAN_LIB_DIR=$(TargetDir) --profile=$(SolutionDir).vs2022.conanprofile --force</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|x64'">
