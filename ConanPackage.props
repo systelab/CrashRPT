@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Label="ConanPackageVersionVariables">
-    <ConanPackageVersion>1.4.3-5</ConanPackageVersion>
+    <ConanPackageVersion>0.0.0</ConanPackageVersion>
   </PropertyGroup>
   <ItemDefinitionGroup />
   <ItemGroup />
