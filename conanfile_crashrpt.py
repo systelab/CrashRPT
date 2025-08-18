@@ -2,7 +2,7 @@ from conans import ConanFile, tools
 
 class CrashRptConan(ConanFile):
 	name = "CrashRpt"
-	version = "1.4.3-5"
+	version = "0.0.0"
 	description = "C++ library to generate crash reports"
 	author = "CSW <csw@werfen.com>"
 	topics = ("conan", "crash", "report", "dump")
