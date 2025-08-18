@@ -164,7 +164,10 @@
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"</Command>
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -214,7 +217,10 @@ copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.d
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"</Command>
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|Win32'">
@@ -243,7 +249,10 @@ copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.d
     </Link>
     <PostBuildEvent>
       <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"</Command>
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
