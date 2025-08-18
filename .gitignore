@@ -1,6 +1,6 @@
 **/Debug/**/*.*
 **/Release/**/*.*
-**/.vs/**/*.*
+**/.vs/**/*
 *.dll
 *.vcxproj.user
 lib/**/*.*
