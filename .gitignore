@@ -2,5 +2,6 @@
 **/Release/**/*.*
 **/.vs/**/*
 *.dll
+!thirdparty/dbghelp/bin/**/*.dll
 *.vcxproj.user
 lib/**/*.*
