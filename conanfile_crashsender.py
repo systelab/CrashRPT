@@ -2,7 +2,6 @@ from conans import ConanFile, tools
 
 class CrashSenderConan(ConanFile):
 	name = "CrashSender"
-	version = "0.0.0"
 	description = "Application to send crash reports"
 	author = "CSW <csw@werfen.com>"
 	topics = ("conan", "crash", "report", "dump")

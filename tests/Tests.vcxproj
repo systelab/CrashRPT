@@ -167,6 +167,8 @@
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -220,6 +222,8 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -252,6 +256,8 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
@@ -331,6 +337,15 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     <ClInclude Include="TestUtils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\processing\crprober\crprober.vcxproj">
+      <Project>{485ada7c-bf7c-4edc-aa56-212bf0160351}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\reporting\crashrpt\CrashRpt.vcxproj">
+      <Project>{9be99719-aa32-4463-a011-b61d55f020d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\reporting\crashsender\CrashSender.vcxproj">
+      <Project>{939312d6-690a-4103-92c5-4d89025bf10a}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\thirdparty\libpng\libpng.vcxproj">
       <Project>{71dada6a-5801-4188-8793-a4a48bac164b}</Project>
     </ProjectReference>

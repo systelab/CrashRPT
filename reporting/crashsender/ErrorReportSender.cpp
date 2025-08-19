@@ -717,8 +717,8 @@ BOOL CErrorReportSender::CreateMiniDump()
     {//10 0 12
         API_VERSION CompiledApiVer;
         CompiledApiVer.MajorVersion = 6;
-        CompiledApiVer.MinorVersion = 1;
-        CompiledApiVer.Revision = 11;    
+        CompiledApiVer.MinorVersion = 3;
+        CompiledApiVer.Revision = 12;    
         CompiledApiVer.Reserved = 0;
         LPAPI_VERSION pActualApiVer = lpImagehlpApiVersionEx(&CompiledApiVer);    
         pActualApiVer;
