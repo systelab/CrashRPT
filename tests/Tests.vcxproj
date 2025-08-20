@@ -31,7 +31,7 @@
     <ProjectGuid>{C6941433-40EA-4307-A0A2-39BFB844367E}</ProjectGuid>
     <RootNamespace>Tests</RootNamespace>
     <Keyword>Win32Proj</Keyword>
-    <WindowsTargetPlatformVersion>10.0.20348.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -157,11 +157,20 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>CrashRpt1403d.lib;CrashRptProbe1403d.lib;libpngd.lib;zlibd.lib;minizipd.lib;dnsapi.lib;wininet.lib;WS2_32.lib;Rpcrt4.lib;version.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib;$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -201,13 +210,22 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>CrashRptProbe1403.lib;CrashRpt1403.lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib;$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|Win32'">
     <ClCompile>
@@ -226,13 +244,22 @@
     <Link>
       <AdditionalDependencies>CrashRptProbeLIB.lib;CrashRptLIB.lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib;$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -308,6 +335,23 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Tests.h" />
     <ClInclude Include="TestUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\processing\crprober\crprober.vcxproj">
+      <Project>{485ada7c-bf7c-4edc-aa56-212bf0160351}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\reporting\crashrpt\CrashRpt.vcxproj">
+      <Project>{9be99719-aa32-4463-a011-b61d55f020d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\reporting\crashsender\CrashSender.vcxproj">
+      <Project>{939312d6-690a-4103-92c5-4d89025bf10a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\thirdparty\libpng\libpng.vcxproj">
+      <Project>{71dada6a-5801-4188-8793-a4a48bac164b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\thirdparty\tinyxml\tinyxml.vcxproj">
+      <Project>{ccc76489-e12c-4744-b31f-0bacd6f0a1b2}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
