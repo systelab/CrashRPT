@@ -1,20 +1,41 @@
-from conans import ConanFile, tools
+from conan import ConanFile
+from conan.tools.files import copy, collect_libs
+import os
 
 class CrashRptConan(ConanFile):
-	name = "CrashRpt"
-	description = "C++ library to generate crash reports"
-	author = "CSW <csw@werfen.com>"
-	topics = ("conan", "crash", "report", "dump")
-	license = "BSD 3-Clause"
-	generators = "visual_studio"
-	settings = "os", "compiler", "build_type", "arch"
+    name = "crashrpt"
+    description = "C++ library to generate crash reports"
+    license = "BSD-3-Clause"
+    author = "CSW <csw@werfen.com>"
+    topics = ("conan", "crash", "report", "dump")
 
-	def package(self):
-		self.copy("CrashRpt.h", dst="include/crashrpt", src="include")
-		self.copy("CrashRpt1403%s.lib" % ("d" if self.settings.build_type == "Debug" else ""), dst="lib", src=("lib"))
-		self.copy("*.dll", dst="bin", src=("bin/Win32/%s/" % self.settings.build_type + "CrashRpt"))
-		self.copy("*.pdb", dst="bin", src=("bin/Win32/%s/" % self.settings.build_type + "CrashRpt"))
+    settings = "os", "compiler", "build_type", "arch"
+    generators = "MSBuildDeps", "MSBuildToolchain"
+    exports_sources = (
+        "include/*",
+        "CMakeLists.txt",
+        "CrashRpt.sln",
+        "version.props",
+        "lang_files/**",
+        "processing/**",
+        "reporting/**",
+        "tests/**",
+        "thirdparty/**",
+        "demos/**"
+    )
 
-	def package_info(self):
-		self.cpp_info.libs = tools.collect_libs(self)
-		self.cpp_info.bindirs = ['bin']
+    def package(self):
+        copy(self, "CrashRpt.h", dst=os.path.join(self.package_folder, "include", "crashrpt"),
+                                 src=os.path.join(self.source_folder, "include"))
+
+        suffix = "d" if self.settings.build_type == "Debug" else ""
+        copy(self, f"CrashRpt1403{suffix}.lib", dst=os.path.join(self.package_folder, "lib"),
+                                                src=os.path.join(self.source_folder, "lib"))
+                                                
+        for pattern in ("*.dll", "*.pdb"):
+            copy(self, pattern, dst=os.path.join(self.package_folder, "bin"),
+                                src=os.path.join(self.source_folder, "bin", "Win32", str(self.settings.build_type), "CrashRpt"))
+
+    def package_info(self):
+        self.cpp_info.libs = collect_libs(self)
+        self.cpp_info.bindirs = ["bin"]
