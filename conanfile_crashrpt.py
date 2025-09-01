@@ -10,7 +10,7 @@ class CrashRptConan(ConanFile):
     topics = ("conan", "crash", "report", "dump")
 
     settings = "os", "compiler", "build_type", "arch"
-    generators = "MSBuildDeps", "MSBuildToolchain"
+
     exports_sources = (
         "include/*",
         "CMakeLists.txt",
@@ -23,13 +23,25 @@ class CrashRptConan(ConanFile):
         "thirdparty/**",
         "demos/**"
     )
+    
+    def requirements(self):
+        self.requires("dbghelp/6.3.9600.17237")
+        self.requires("libjpeg/8b")
+        self.requires("ogg/1.3.0")
+        self.requires("libpng/1.2.7")
+        self.requires("minizip/1.1")
+        self.requires("theora/1.1.1")
+        self.requires("tinyxml/2.6.1")
+        self.requires("wtl/8.1.9127")
+        self.requires("zlib/1.3.1")
+        # self.requires("libvpx/1.3.0@") vpx / webm is in thirdparty folder but it's not used. Code stating it creates a webm video uses theora to create a .ogg
 
     def package(self):
         copy(self, "CrashRpt.h", dst=os.path.join(self.package_folder, "include", "crashrpt"),
                                  src=os.path.join(self.source_folder, "include"))
 
         suffix = "d" if self.settings.build_type == "Debug" else ""
-        copy(self, f"CrashRpt1403{suffix}.lib", dst=os.path.join(self.package_folder, "lib"),
+        copy(self, f"CrashRpt{suffix}.lib", dst=os.path.join(self.package_folder, "lib"),
                                                 src=os.path.join(self.source_folder, "lib"))
                                                 
         for pattern in ("*.dll", "*.pdb"):
