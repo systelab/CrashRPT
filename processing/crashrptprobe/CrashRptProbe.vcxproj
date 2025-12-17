@@ -166,7 +166,7 @@
       <ModuleDefinitionFile>CrashRptProbe.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <ImportLibrary>$(SolutionDir)lib\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>
@@ -221,7 +221,7 @@
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-      <ImportLibrary>$(SolutionDir)lib\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
   </ItemDefinitionGroup>

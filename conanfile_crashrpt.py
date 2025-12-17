@@ -40,9 +40,7 @@ class CrashRptConan(ConanFile):
         copy(self, "CrashRpt.h", dst=os.path.join(self.package_folder, "include", "crashrpt"),
                                  src=os.path.join(self.source_folder, "include"))
 
-        suffix = "d" if self.settings.build_type == "Debug" else ""
-        copy(self, f"CrashRpt{suffix}.lib", dst=os.path.join(self.package_folder, "lib"),
-                                                src=os.path.join(self.source_folder, "lib"))
+        copy(self, f"CrashRpt*.lib", dst=os.path.join(self.package_folder, "lib"), src=os.path.join(self.source_folder, "lib", str(self.settings.build_type)))
                                                 
         for pattern in ("*.dll", "*.pdb"):
             copy(self, pattern, dst=os.path.join(self.package_folder, "bin"),

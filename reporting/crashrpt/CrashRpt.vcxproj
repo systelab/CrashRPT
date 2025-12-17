@@ -195,7 +195,7 @@
       <ModuleDefinitionFile>CrashRpt.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <OptimizeReferences>true</OptimizeReferences>
-      <ImportLibrary>$(SolutionDir)lib\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
       <LinkTimeCodeGeneration>
       </LinkTimeCodeGeneration>
@@ -300,7 +300,7 @@
       <ModuleDefinitionFile>CrashRpt.def</ModuleDefinitionFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <BaseAddress>0x20000000</BaseAddress>
-      <ImportLibrary>$(SolutionDir)lib\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)lib\$(Configuration)\$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
       <LinkTimeCodeGenerationObjectFile />
     </Link>
