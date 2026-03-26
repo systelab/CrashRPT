@@ -4,8 +4,8 @@ import os
 
 class LibOGGConan(ConanFile):
 	name = "ogg"
-	version = "1.3.0"
-	homepage = "https://github.com/gcp/libogg/tree/master"
+	version = "1.3.5"
+	homepage = "https://gitlab.xiph.org/xiph/ogg/-/tree/v1.3.5?ref_type=tags"
 	
 	exports_sources = (
 		"CMakeLists.txt",
