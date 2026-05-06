@@ -1,5 +1,7 @@
 from conan import ConanFile
 from conan.tools.files import copy, collect_libs
+from conan.tools.microsoft import MSBuildToolchain, MSBuild
+from conan.errors import ConanInvalidConfiguration
 import os
 
 class CrashRptConan(ConanFile):
@@ -35,6 +37,21 @@ class CrashRptConan(ConanFile):
         self.requires("wtl/8.1.9127")
         self.requires("zlib/1.3.1")
         # self.requires("libvpx/1.3.0@") vpx / webm is in thirdparty folder but it's not used. Code stating it creates a webm video uses theora to create a .ogg
+
+    def generate(self):
+        msbuild_tc = MSBuildToolchain(self)
+        msbuild_tc.generate()
+
+    def build(self):
+        msbuild = MSBuild(self)
+
+        arch = str(self.settings.arch)
+        if arch == "x86":
+            msbuild.platform = "Win32"
+        else:
+            raise ConanInvalidConfiguration(f"CrashRpt does not support '{arch}' architecture")
+
+        msbuild.build(os.path.join(self.source_folder, "CrashRpt.sln"), targets=["CrashRpt"])
 
     def package(self):
         copy(self, "CrashRpt.h", dst=os.path.join(self.package_folder, "include", "crashrpt"),
