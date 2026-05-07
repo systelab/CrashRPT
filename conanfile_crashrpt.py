@@ -29,7 +29,7 @@ class CrashRptConan(ConanFile):
     def requirements(self):
         self.requires("dbghelp/6.3.9600.17237")
         self.requires("libjpeg/8b")
-        self.requires("ogg/1.3.5")
+        self.requires("ogg/1.3.0")
         self.requires("libpng/1.2.7")
         self.requires("minizip/1.1")
         self.requires("theora/1.1.1")
