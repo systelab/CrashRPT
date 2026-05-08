@@ -42,26 +42,30 @@ class CrashRptConan(ConanFile):
         msbuild_tc = MSBuildToolchain(self)
         msbuild_tc.generate()
 
+    def _get_platform(self):
+        arch_map = {"x86": "Win32", "x86_64": "x64"}
+        arch = str(self.settings.arch)
+        if arch not in arch_map:
+            raise ConanInvalidConfiguration(f"CrashRpt does not support '{arch}' architecture")
+        return arch_map[arch]
+
     def build(self):
         msbuild = MSBuild(self)
-
-        arch = str(self.settings.arch)
-        if arch == "x86":
-            msbuild.platform = "Win32"
-        else:
-            raise ConanInvalidConfiguration(f"CrashRpt does not support '{arch}' architecture")
-
+        msbuild.platform = self._get_platform()
         msbuild.build(os.path.join(self.source_folder, "CrashRpt.sln"), targets=["CrashRpt"])
 
     def package(self):
         copy(self, "CrashRpt.h", dst=os.path.join(self.package_folder, "include", "crashrpt"),
                                  src=os.path.join(self.source_folder, "include"))
 
-        copy(self, f"CrashRpt*.lib", dst=os.path.join(self.package_folder, "lib"), src=os.path.join(self.source_folder, "lib", str(self.settings.build_type)))
-                                                
+        platform = self._get_platform()
+        lib_pattern = "CrashRpt*d.lib" if self.settings.build_type == "Debug" else "CrashRpt*.lib"
+        copy(self, lib_pattern, dst=os.path.join(self.package_folder, "lib"),
+                                src=os.path.join(self.source_folder, "lib", platform, str(self.settings.build_type)))
+
         for pattern in ("*.dll", "*.pdb"):
             copy(self, pattern, dst=os.path.join(self.package_folder, "bin"),
-                                src=os.path.join(self.source_folder, "bin", "Win32", str(self.settings.build_type), "CrashRpt"))
+                                src=os.path.join(self.source_folder, "bin", platform, str(self.settings.build_type), "CrashRpt"))
 
     def package_info(self):
         self.cpp_info.libs = collect_libs(self)

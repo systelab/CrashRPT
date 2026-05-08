@@ -42,21 +42,22 @@ class CrashSenderConan(ConanFile):
         msbuild_tc = MSBuildToolchain(self)
         msbuild_tc.generate()
 
+    def _get_platform(self):
+        arch_map = {"x86": "Win32", "x86_64": "x64"}
+        arch = str(self.settings.arch)
+        if arch not in arch_map:
+            raise ConanInvalidConfiguration(f"CrashSender does not support '{arch}' architecture")
+        return arch_map[arch]
+
     def build(self):
         msbuild = MSBuild(self)
-
-        arch = str(self.settings.arch)
-        if arch == "x86":
-            msbuild.platform = "Win32"
-        else:
-            raise ConanInvalidConfiguration(f"CrashSender does not support '{arch}' architecture")
-
+        msbuild.platform = self._get_platform()
         msbuild.build(os.path.join(self.source_folder, "CrashRpt.sln"), targets=["CrashSender"])
 
     def package(self):
-        
-        crashrpt_src = os.path.join(self.source_folder, "bin", "Win32", str(self.settings.build_type), "CrashRpt")
-        crashsender_src = os.path.join(self.source_folder, "bin", "Win32", str(self.settings.build_type), "CrashSender")
+        platform = self._get_platform()
+        crashrpt_src = os.path.join(self.source_folder, "bin", platform, str(self.settings.build_type), "CrashRpt")
+        crashsender_src = os.path.join(self.source_folder, "bin", platform, str(self.settings.build_type), "CrashSender")
         
         bin_dst = os.path.join(self.package_folder, "bin")
         pdb_dst = os.path.join(self.package_folder, "pdb")
