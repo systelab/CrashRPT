@@ -5,3 +5,5 @@
 !thirdparty/dbghelp/bin/**/*.dll
 *.vcxproj.user
 lib/**/*.*
+int/**/*.*
+bin/**/*.*
