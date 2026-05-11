@@ -169,11 +169,11 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
@@ -198,6 +198,15 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -224,11 +233,11 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
@@ -258,11 +267,11 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
@@ -291,6 +300,15 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|x64'">
     <ClCompile>
@@ -311,8 +329,15 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-    </Link>
-  </ItemDefinitionGroup>
+    </Link>    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\reporting\crashrpt\Utility.cpp" />
     <ClCompile Include="CrashRptAPITests.cpp" />

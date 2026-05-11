@@ -202,7 +202,7 @@
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)dbghelp\bin\dbghelp.dll" "$(OutDir)"
+      <Command>copy "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 copy "dummy.ini" "$(OutDir)"
 copy "dummy.log" "$(OutDir)"
 </Command>
@@ -298,7 +298,7 @@ copy "dummy.log" "$(OutDir)"
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)dbghelp\bin\dbghelp.dll" "$(OutDir)"
+      <Command>copy "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
 copy "dummy.ini" "$(OutDir)"
 copy "dummy.log" "$(OutDir)"
 </Command>
@@ -390,7 +390,7 @@ copy "dummy.log" "$(OutDir)"
       <TargetMachine>MachineX64</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)dbghelp\bin\dbghelp.dll" "$(OutDir)"
+      <Command>copy "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
 copy "dummy.ini" "$(OutDir)"
 copy "dummy.log" "$(OutDir)"</Command>
     </PostBuildEvent>
@@ -414,7 +414,7 @@ copy "dummy.log" "$(OutDir)"</Command>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <PostBuildEvent>
-      <Command>copy "$(SolutionDir)dbghelp\bin\dbghelp.dll" "$(OutDir)"
+      <Command>copy "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
 copy "dummy.ini" "$(OutDir)"
 copy "dummy.log" "$(OutDir)"</Command>
     </PostBuildEvent>
