@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -73,21 +73,27 @@
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\version.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\version.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\version.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\version.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\version.props" />
   </ImportGroup>
   <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="..\version.props" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
@@ -156,18 +162,18 @@
       <AdditionalOptions>/permissive %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>CrashRpt1403d.lib;CrashRptProbe1403d.lib;libpngd.lib;zlibd.lib;minizipd.lib;dnsapi.lib;wininet.lib;WS2_32.lib;Rpcrt4.lib;version.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrashRpt$(CrashRptVer)d.lib;CrashRptProbe$(CrashRptVer)d.lib;libpngd.lib;zlibd.lib;minizipd.lib;dnsapi.lib;wininet.lib;WS2_32.lib;Rpcrt4.lib;version.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
@@ -187,11 +193,20 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <AdditionalOptions>/permissive %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>libpngd.lib;zlibd.lib;minizipd.lib;dnsapi.lib;wininet.lib;WS2_32.lib;CrashRptProbe1403d.lib;CrashRpt1403d.lib;Rpcrt4.lib;version.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform);..\thirdparty\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libpngd.lib;zlibd.lib;minizipd.lib;dnsapi.lib;wininet.lib;WS2_32.lib;CrashRptProbe$(CrashRptVer)d.lib;CrashRpt$(CrashRptVer)d.lib;Rpcrt4.lib;version.lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform)\$(Configuration);..\thirdparty\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -209,8 +224,8 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <AdditionalOptions>/permissive %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>CrashRptProbe1403.lib;CrashRpt1403.lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrashRptProbe$(CrashRptVer).lib;CrashRpt$(CrashRptVer).lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -218,11 +233,11 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
@@ -244,7 +259,7 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     <Link>
       <AdditionalDependencies>CrashRptProbeLIB.lib;CrashRptLIB.lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)$(TargetName)$(TargetExt)</OutputFile>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
@@ -252,11 +267,11 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <TargetMachine>MachineX86</TargetMachine>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
-copy /Y "$(SolutionDir)bin\Win32\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
 copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll" "$(OutDir)"
 xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </PostBuildEvent>
@@ -277,14 +292,23 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
       <AdditionalOptions>/permissive %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>CrashRptProbe1403.lib;CrashRpt1403.lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform);..\thirdparty\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>CrashRptProbe$(CrashRptVer).lib;CrashRpt$(CrashRptVer).lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform)\$(Configuration);..\thirdparty\lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
     </Link>
+    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release LIB|x64'">
     <ClCompile>
@@ -300,13 +324,20 @@ xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
     </ClCompile>
     <Link>
       <AdditionalDependencies>CrashRptProbeLIB.lib;CrashRptLIB.lib;psapi.lib;libpng.lib;zlib.lib;minizip.lib;wininet.lib;dnsapi.lib;WS2_32.lib;Rpcrt4.lib;version.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform);$(SolutionDir)lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)lib\$(Platform)\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
-    </Link>
-  </ItemDefinitionGroup>
+    </Link>    <PostBuildEvent>
+      <Command>copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRpt\CrashRpt*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashRptProbe\CrashRptProbe*.dll" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\CrashSender*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\CrashSender\crashrpt_lang.ini" "$(OutDir)"
+copy /Y "$(SolutionDir)bin\$(Platform)\$(Configuration)\crprober\crprober*.exe" "$(OutDir)"
+copy /Y "$(SolutionDir)thirdparty\dbghelp\bin\amd64\dbghelp.dll" "$(OutDir)"
+xcopy "$(SolutionDir)lang_files\*.ini" "$(OutDir)..\lang_files" /I /Y</Command>
+    </PostBuildEvent>  </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\reporting\crashrpt\Utility.cpp" />
     <ClCompile Include="CrashRptAPITests.cpp" />
